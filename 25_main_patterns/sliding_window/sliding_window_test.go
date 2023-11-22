@@ -113,3 +113,70 @@ func Test_minSum(t *testing.T) {
 		r.Equal(result, expectedResult)
 	})
 }
+
+func Test_findPattern(t *testing.T) {
+	t.Run("success test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			s              = "oidbcaf"
+			pattern        = "abc"
+			expectedResult = true
+		)
+
+		result := findPattern(s, pattern)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("unsuccess test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			s              = "oi"
+			pattern        = "abc"
+			expectedResult = false
+		)
+
+		result := findPattern(s, pattern)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("unsuccess test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			s              = "oidbcaf"
+			pattern        = "gfd"
+			expectedResult = false
+		)
+
+		result := findPattern(s, pattern)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("unsuccess test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			s              = "oidbcaf"
+			pattern        = "gfd"
+			expectedResult = false
+		)
+
+		result := findPattern(s, pattern)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("unsuccess test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			s              = "aaabbbccccd"
+			pattern        = "abc"
+			expectedResult = false
+		)
+
+		result := findPattern(s, pattern)
+		r.Equal(result, expectedResult)
+	})
+}

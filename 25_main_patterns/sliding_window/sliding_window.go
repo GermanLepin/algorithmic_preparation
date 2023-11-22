@@ -1,5 +1,7 @@
 package sliding_window
 
+import "reflect"
+
 // This algorithmic technique is used when we need to handle the input data in specific window size.
 
 // Task: given an array of integers and a positive integer k, find the maximum sum of a subarray of size k.
@@ -46,7 +48,30 @@ func minSum(n []int, k int) int {
 }
 
 // Task: Given a string and a pattern, find out if the string contains any permutation of the pattern.
-// Permutation is defined as the re-arranging of the characters of the string.
-// Input: String="oidbcaf", Pattern="ABC"
-// Output: true
-// Explanation: The string contains "bca" which is a permutation of the given pattern.
+func findPattern(s string, pattern string) bool {
+	if len(s) < len(pattern) {
+		return false
+	}
+
+	patternMap := make(map[byte]int)
+	windowMap := make(map[byte]int)
+	for i := 0; i < len(pattern); i++ {
+		patternMap[pattern[i]]++
+		windowMap[s[i]]++
+	}
+
+	for i := len(pattern); i < len(s); i++ {
+		windowMap[s[i-len(pattern)]]--
+		if windowMap[s[i-len(pattern)]] == 0 {
+			delete(windowMap, s[i-len(pattern)])
+		}
+		windowMap[s[i]]++
+
+		// to compare two maps we should use reflect.DeepEqual
+		if reflect.DeepEqual(patternMap, windowMap) {
+			return true
+		}
+	}
+
+	return false
+}
