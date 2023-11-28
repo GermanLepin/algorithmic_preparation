@@ -2,9 +2,12 @@ package sliding_window
 
 import "reflect"
 
-// This algorithmic technique is used when we need to handle the input data in specific window size.
+// Usage: This algorithmic technique is used when we need to handle the input data in specific
+// window size.
 
-// Task: given an array of integers and a positive integer k, find the maximum sum of a subarray of size k.
+// Task: given an array of integers and a positive integer k, find the maximum sum of a subarray
+// of size k.
+
 func maxSum(n []int, k int) int {
 	var maxSum int
 
