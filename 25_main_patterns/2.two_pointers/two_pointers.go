@@ -44,6 +44,44 @@ func sortedSquares(nums []int) []int {
 // elements should be kept the same. Then return the number of unique elements in nums.
 
 func removeDuplicates(nums []int) int {
+	if len(nums) <= 1 {
+		return len(nums)
+	}
 
-	return 0
+	uniqPosition := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != nums[uniqPosition] {
+			uniqPosition++
+			nums[uniqPosition] = nums[i]
+		}
+	}
+
+	return uniqPosition + 1
+}
+
+// Given an integer array nums and an integer val, remove all occurrences of val in nums in-place.
+// The order of the elements may be changed. Then return the number of elements in nums which
+// are not equal to val.
+
+// Consider the number of elements in nums which are not equal to val be k, to get accepted,
+// you need to do the following things:
+
+// Change the array nums such that the first k elements of nums contain the elements which are
+// not equal to val. The remaining elements of nums are not important as well as the size of nums.
+// Return k.
+
+// Input: nums = [0,1,2,2,3,0,4,2], val = 2
+// Output: 5, nums = [0,1,4,0,3]
+
+func removeElement(nums []int, val int) int {
+	k := 0
+
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != val {
+			nums[k] = nums[i]
+			k++
+		}
+	}
+
+	return k
 }

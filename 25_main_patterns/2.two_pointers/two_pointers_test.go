@@ -56,4 +56,69 @@ func Test_removeDuplicates(t *testing.T) {
 		result := removeDuplicates(nums)
 		r.Equal(result, expectedResult)
 	})
+
+	t.Run("success test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			nums           = []int{-2}
+			expectedResult = 1
+		)
+
+		result := removeDuplicates(nums)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("success test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			nums           = []int{2, 3, 3, 4, 4, 6, 7, 8, 8, 8, 9}
+			expectedResult = 7
+		)
+
+		result := removeDuplicates(nums)
+		r.Equal(result, expectedResult)
+	})
+}
+
+func Test_removeElement(t *testing.T) {
+	t.Run("success test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			nums           = []int{3, 2, 2, 3}
+			k              = 3
+			expectedResult = 2
+		)
+
+		result := removeElement(nums, k)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("success test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			nums           = []int{0, 1, 2, 2, 3, 0, 4, 2}
+			k              = 2
+			expectedResult = 5
+		)
+
+		result := removeElement(nums, k)
+		r.Equal(result, expectedResult)
+	})
+
+	t.Run("success test", func(t *testing.T) {
+		r := require.New(t)
+
+		var (
+			nums           = []int{1, 2, 3, 4, 5}
+			k              = 8
+			expectedResult = 5
+		)
+
+		result := removeElement(nums, k)
+		r.Equal(result, expectedResult)
+	})
 }
